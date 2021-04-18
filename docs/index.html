@@ -3,7 +3,7 @@
 <script src="md5-min.js"></script>
 
 <script>
-var today = new Date();
+var today = new Date().getUTCDate();
 var title = document.getElementById("title");
 var md5_string = hex_md5(today.getDate() + " " + today.getMonth() + " " + today.getYear());
 var number = parseInt(md5_string, 16);
