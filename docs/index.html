@@ -1,5 +1,4 @@
 <h1 id="today"> </h1>
-<h4 id="beforetoday"> </h4>
 
 <style> 
     h1 {
@@ -22,19 +21,23 @@
     </style>
 
 <script src="md5-min.js"></script>
+<script src="https://peterolson.github.io/BigInteger.js/BigInteger.min.js"></script>
+
 
 <script>
-    var today = new Date();
-    var elem = document.getElementById("today");
-    var md5_string = hex_md5(today.getDate() + " " + today.getMonth() + " " + today.getYear());
-    var number = parseInt(md5_string, 16);
-    var x = number % 100;
-    if (x < 10) {
-    
-        elem.innerHTML = "Yes/Jah"
-    }
-    else {
-        elem.innerHTML = "No/Ei"
-    }
-    
-    </script>
+
+  var today = new Date();
+  var elem = document.getElementById("today");
+  var md5_string = hex_md5(today.getDate() + " " + today.getMonth() + " " + today.getYear());
+  var number = new bigInt(md5_string, 16);
+  var x = number.mod(100);
+  if (x < 10) {
+  
+      elem.innerHTML = "Yes/Jah"
+  }
+  else {
+      elem.innerHTML = number
+
+  }
+</script>
+
